@@ -12,7 +12,7 @@ class OrderItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create order_item" do
     assert_difference("OrderItem.count") do
-      post order_items_url, params: { order_item: {  } }, as: :json
+      post order_items_url, params: { order_item: { cartItem_id: @order_item.cartItem_id, order_id: @order_item.order_id } }, as: :json
     end
 
     assert_response :created
@@ -24,7 +24,7 @@ class OrderItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update order_item" do
-    patch order_item_url(@order_item), params: { order_item: {  } }, as: :json
+    patch order_item_url(@order_item), params: { order_item: { cartItem_id: @order_item.cartItem_id, order_id: @order_item.order_id } }, as: :json
     assert_response :success
   end
 

@@ -5,9 +5,11 @@ one:
   city: MyString
   state: MyString
   postal_code: MyString
+  user: one
 
 two:
   address: MyString
   city: MyString
   state: MyString
   postal_code: MyString
+  user: two

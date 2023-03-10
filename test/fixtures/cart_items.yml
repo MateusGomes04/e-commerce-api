@@ -3,7 +3,11 @@
 one:
   quantity: 1
   price_unit: 1
+  cart: one
+  product: one
 
 two:
   quantity: 1
   price_unit: 1
+  cart: two
+  product: two

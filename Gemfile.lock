@@ -81,6 +81,8 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.12.0)
+    faker (3.1.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -152,6 +154,9 @@ GEM
       railties (>= 5.2)
     thor (1.2.1)
     timeout (0.3.2)
+    tty-cursor (0.7.1)
+    tty-spinner (0.9.3)
+      tty-cursor (~> 0.7)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
@@ -169,9 +174,11 @@ DEPENDENCIES
   bootsnap
   debug
   devise
+  faker
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
+  tty-spinner
   tzinfo-data
 
 RUBY VERSION

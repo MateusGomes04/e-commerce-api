@@ -1,11 +1,12 @@
 class User < ApplicationRecord
   extend Devise::Models
 
+
+
    # Define as roles permitidas
-   ROLES = {client: 0, admin: 1}
-   enum role: ROLES
+   enum role: {client: 0, admin: 1}
     # Valida a role
-  validates :role, inclusion: { in: ROLES.values }
+  # validates :role, inclusion: { in: ROLES.values }
 
 
   # Include default devise modules. Others available are:

@@ -2,10 +2,12 @@
 
 one:
   name: MyString
-  price_product: 1
+  price_in_cent: 1
   description: MyString
+  brand: one
 
 two:
   name: MyString
-  price_product: 1
+  price_in_cent: 1
   description: MyString
+  brand: two
