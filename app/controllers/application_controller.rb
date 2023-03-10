@@ -5,7 +5,7 @@ def authenticate_admin
         true
     else
         false 
-        render json: {error:"User no authenticate"},status: :bad_request
+        render json: {error:"unauthenticated user, please make sure you are on an admin account"},status: :bad_request
   end
  end
 end
