@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -9,13 +11,26 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.dispatch_requests = [
+      ['POST', %r{^/login$}]
+    ]
+   jwt.revocation_requests = [
+      ['DELETE', %r{^/logout$}]
+    ]
+    jwt.expiration_time = 30.minutes.to_i
+  end
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'c08a6b4fd4d9378e333932ddc85bd0d0749f7977bc4de9b952521d4679be10020a2a0cc28a77ac2c8d17980c2b73b73f82b8924e00c86a4d178c231d5d8e592c'
-
+  # config.secret_key_base = 'c08a6b4fd4d9378e333932ddc85bd0d0749f7977bc4de9b952521d4679be10020a2a0cc28a77ac2c8d17980c2b73b73f82b8924e00c86a4d178c231d5d8e592c'
+  
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -34,7 +49,8 @@ Devise.setup do |config|
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
-  # :mongoid (bson_ext recommended) by default. Other ORMs may be
+  # :mongoid (bson_ext recommended) by default
+
   # available as additional gems.
   require 'devise/orm/active_record'
 
@@ -263,7 +279,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html, :turbo_stream]
+   config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -311,3 +327,4 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 end
+
