@@ -3,7 +3,12 @@ class CartItemsController < ApplicationController
 
   # GET /cart_items
   def index
-    @cart_items = CartItem.all
+    @cart_items = []
+    if params[:cart_id].present?
+      @cart_items = CartItem.where(params[:cart_id]).joi
+    else 
+      @cart_items = CartItem.all
+    end
 
     render json: @cart_items
   end

@@ -3,9 +3,15 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items
   def index
-    @order_items = OrderItem.all
+    @order_items = []
+    if params[:order_id].present?
+      @order_items = OrderItems.where(params[:order_id])
+    else
+      @order_items = OrderItems.all
+    end
 
     render json: @order_items
+    
   end
 
   # GET /order_items/1
