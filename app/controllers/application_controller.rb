@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-
+    before_action :authenticate_user!
 def authenticate_admin
     if  current_user.role == 1 
         true
