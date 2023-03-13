@@ -5,12 +5,12 @@ class CartItemsController < ApplicationController
   def index
     @cart_items = []
     if params[:cart_id].present?
-      @cart_items = CartItem.where(params[:cart_id]).joi
+      @cart_items = CartItem.joins(:cart).where(params[:cart_id])
     else 
       @cart_items = CartItem.all
-    end
 
     render json: @cart_items
+    end
   end
 
   # GET /cart_items/1

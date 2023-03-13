@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   extend Devise::Models
   
-  has_one :address
+  has_many :address
+  has_many :order
 
    # Define as roles permitidas
    enum role: {client: 0, admin: 1}

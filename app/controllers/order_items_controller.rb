@@ -5,7 +5,7 @@ class OrderItemsController < ApplicationController
   def index
     @order_items = []
     if params[:order_id].present?
-      @order_items = OrderItems.where(params[:order_id])
+      @order_items = OrderItems.joins(:order).where(params[:order_id])
     else
       @order_items = OrderItems.all
     end
